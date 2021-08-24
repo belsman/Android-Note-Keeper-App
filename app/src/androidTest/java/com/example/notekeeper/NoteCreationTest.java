@@ -1,6 +1,7 @@
 package com.example.notekeeper;
 
-import androidx.test.runner.AndroidJUnit4;
+//import androidx.test.runner.AndroidJUnit4;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.rule.ActivityTestRule;
 import androidx.test.espresso.ViewInteraction;
 
