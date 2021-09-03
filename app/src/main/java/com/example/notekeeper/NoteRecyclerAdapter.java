@@ -1,17 +1,29 @@
 package com.example.notekeeper;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class NoteRecyclerAdapter extends RecyclerView.Adapter<NoteRecyclerAdapter.ViewHolder> {
 
+    private Context mContext;
+    private final LayoutInflater mLayoutInflater;
+
+    public NoteRecyclerAdapter(Context context) {
+        mContext = context;
+        mLayoutInflater = LayoutInflater.from(mContext);
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View viewItem =  mLayoutInflater.inflate(R.layout.list_item, parent, false);
+        return new ViewHolder(viewItem);
     }
 
     @Override
@@ -26,8 +38,13 @@ public class NoteRecyclerAdapter extends RecyclerView.Adapter<NoteRecyclerAdapte
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
+        public final TextView mTextCourse;
+        public final TextView mTextTitle;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            mTextCourse = itemView.findViewById(R.id.text_course);
+            mTextTitle = itemView.findViewById(R.id.text_title);
         }
     }
 }
